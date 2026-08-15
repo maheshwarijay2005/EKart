@@ -1,0 +1,3 @@
+/Users/kabra_jay/Desktop/fullstack-react-springboot/JayKart/api-gateway/src/main/java/com/jaykabra/jaykart/api_gateway/ApiGatewayApplication.java
+/Users/kabra_jay/Desktop/fullstack-react-springboot/JayKart/api-gateway/src/main/java/com/jaykabra/jaykart/api_gateway/config/CorsConfig.java
+/Users/kabra_jay/Desktop/fullstack-react-springboot/JayKart/api-gateway/src/main/java/com/jaykabra/jaykart/api_gateway/filter/AuthenticationFilter.java

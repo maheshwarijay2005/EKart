@@ -1,0 +1,5 @@
+/Users/kabra_jay/Desktop/fullstack-react-springboot/JayKart/inventory-service/src/main/java/com/jaykabra/jaykart/inventory_service/InventoryServiceApplication.java
+/Users/kabra_jay/Desktop/fullstack-react-springboot/JayKart/inventory-service/src/main/java/com/jaykabra/jaykart/inventory_service/entity/InventoryItem.java
+/Users/kabra_jay/Desktop/fullstack-react-springboot/JayKart/inventory-service/src/main/java/com/jaykabra/jaykart/inventory_service/event/OrderEvent.java
+/Users/kabra_jay/Desktop/fullstack-react-springboot/JayKart/inventory-service/src/main/java/com/jaykabra/jaykart/inventory_service/repository/InventoryRepository.java
+/Users/kabra_jay/Desktop/fullstack-react-springboot/JayKart/inventory-service/src/main/java/com/jaykabra/jaykart/inventory_service/service/InventorySagaListener.java

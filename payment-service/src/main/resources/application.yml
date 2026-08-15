@@ -1,0 +1,24 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: jdbc:mysql://${DATABASE_HOST:localhost}:3307/jaykart_payment
+    username: root
+    password: ${DATABASE_PASSWORD:Jaykabra@44}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  kafka:
+    bootstrap-servers: localhost:29092
+    consumer:
+      group-id: payment-group
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

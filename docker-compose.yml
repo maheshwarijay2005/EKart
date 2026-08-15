@@ -1,0 +1,77 @@
+
+
+services:
+  # ----------------------------------------
+  # 1. MySQL (Primary Database)
+  # ----------------------------------------
+  mysql:
+    image: mysql:8.0
+    container_name: jaykart-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Jaykabra@44
+      MYSQL_DATABASE: jaykart # Default/Gateway DB
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./infra/mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+    networks:
+      - jaykart-network
+
+  # ----------------------------------------
+  # 2. Redis (Caching & LRU)
+  # ----------------------------------------
+  redis:
+    image: redis:7.0-alpine
+    container_name: jaykart-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    networks:
+      - jaykart-network
+
+  # ----------------------------------------
+  # 3. Zookeeper (For Kafka)
+  # ----------------------------------------
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    container_name: jaykart-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    restart: unless-stopped
+    networks:
+      - jaykart-network
+
+  # ----------------------------------------
+  # 4. Kafka (Event Broker for Saga)
+  # ----------------------------------------
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: jaykart-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    restart: unless-stopped
+    networks:
+      - jaykart-network
+
+networks:
+  jaykart-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    driver: local

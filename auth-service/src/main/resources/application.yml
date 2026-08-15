@@ -1,0 +1,20 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:mysql://${DATABASE_HOST:localhost}:3307/jaykart_auth
+    username: root
+    password: ${DATABASE_PASSWORD:Jaykabra@44}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
