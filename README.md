@@ -1,8 +1,8 @@
-# 🛒 JayKart – Online Shopping Store
+# 🛒 EKart – Online Shopping Store
 
 <div align="center">
 
-![JayKart Banner](https://img.shields.io/badge/JayKart-E--Commerce-blue?style=for-the-badge&logo=shopify&logoColor=white)
+![EKart Banner](https://img.shields.io/badge/EKart-E--Commerce-blue?style=for-the-badge&logo=shopify&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.0.3-6DB33F?style=for-the-badge&logo=spring-boot)
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
 ![MySQL](https://img.shields.io/badge/MySQL-9-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
@@ -19,7 +19,7 @@
 
 ## Overview
 
-**JayKart** is a production-ready full-stack e-commerce platform built using **Spring Boot 4** on the backend and **React 19** on the frontend. It supports user registration/login with **JWT-based stateless authentication**, role-based access control (ADMIN/USER), a shopping cart with **Redux state management**, real-time **Stripe payment processing**, order history, and a full admin panel.
+**EKart** is a production-ready full-stack e-commerce platform built using **Spring Boot 4** on the backend and **React 19** on the frontend. It supports user registration/login with **JWT-based stateless authentication**, role-based access control (ADMIN/USER), a shopping cart with **Redux state management**, real-time **Stripe payment processing**, order history, and a full admin panel.
 
 ---
 
@@ -60,7 +60,7 @@
 ## Architecture
 
 ```
-jaykart/
+ekart/
 ├── eazystore/                  # Spring Boot Backend
 │   └── src/main/java/com/jaykabra/jaykart/
 │       ├── config/             # Caffeine cache, Stripe, Auditor
